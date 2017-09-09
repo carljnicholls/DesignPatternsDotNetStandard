@@ -1,4 +1,3 @@
-# Singleton Pattern
+# Design Pattern Examples 
 
-The Singleton pattern restricts the number of instances of a class to one. 
-It is a Gang of Four pattern which controls its own initialisation by having a private contructor and a public method which controls initialisation of the object.
+These examples will be written in C# and conform to the .NET Standard 2.0. Each patterm will consist of a class library and testing project.
