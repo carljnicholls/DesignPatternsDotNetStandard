@@ -20,10 +20,19 @@ namespace SingletonExample.Test
         {
             var expected = Singleton.GetInstance()._Count;
 
-            Singleton.GetInstance()._Count = 1;
+            Singleton.GetInstance()._Count = 45;
             var result = Singleton.GetInstance()._Count;
             
             Assert.AreNotEqual(expected, result, "Singleton count parameter should not be equal.");
+        }
+
+        [TestMethod]
+        public void SingletonObjectCountVariableCountsInstancesOfClass()
+        {
+            var expected = Singleton.GetInstance()._Count + 1;
+            var result = Singleton.GetInstance()._Count;
+
+            Assert.AreEqual(expected, result, "Singleton count variable should +1 for every time after intialisation. "); 
         }
     }
 }

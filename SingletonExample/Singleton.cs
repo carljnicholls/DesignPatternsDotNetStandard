@@ -3,7 +3,6 @@
     public class Singleton
     {
         private static Singleton Instance = null;
-        //private int Count { get; set; }
         private int Count;
 
         public int _Count
@@ -21,7 +20,9 @@
         {
             if (Instance == null)
                 Instance = new Singleton();
-
+            else
+                Instance.Count++;
+            
             return Instance; 
         }
     }
