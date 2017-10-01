@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CompositeExample
 {
+    /// <summary>
+    /// Component Object 
+    /// </summary>
     public class CallPool : ICallPool
     {
         private int Id;
@@ -11,7 +14,8 @@ namespace CompositeExample
         public CallPool()
         {
             Random rdm = new Random();
-            _Id = rdm.Next() * rdm.Next(); 
+            _Id = rdm.Next() * rdm.Next();
+            rdm.Next(); 
         }
 
         protected int _Id

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace CompositeExample
 {
+    /// <summary>
+    /// Composite Object 
+    /// </summary>
     public class CompositeCallPool : ICallPool
     {
         private readonly List<ICallPool> callPool;

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CompositeExample
 {
+    /// <summary>
+    /// define behaviour for Composite Objects 
+    /// </summary>
     public interface ICallPool
     {
         IEnumerable<string> CallBack(); 
