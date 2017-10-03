@@ -10,25 +10,35 @@ namespace BridgeExample
         public string PrepareToSerializeObject(IEnumerable<IEnumerable<KeyValuePair<string, string>>> values)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            var jsonObjects = values.ToList();
-            for (int i = 0; i < jsonObjects.Count; i++)
+
+            stringBuilder.Append(ListToJsonArrayString(values.ToList()));
+
+            return stringBuilder.ToString(); 
+        }
+
+        private string ListToJsonArrayString(List<IEnumerable<KeyValuePair<string, string>>> json)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < json.Count; i++)
             {
-                if(i != jsonObjects.Count -1)
-                    stringBuilder.Append(ListToJsonArrayString(jsonObjects[i]))
-                        .Append("}, "); 
+                if (i != json.Count - 1)
+                    stringBuilder.Append(ListToJsonObjectString(json[i]))
+                        .Append("}, ");
                 else
-                    stringBuilder.Append(ListToJsonArrayString(jsonObjects[i]))
+                    stringBuilder.Append(ListToJsonObjectString(json[i]))
                         .Append("};");
             }
 
             return stringBuilder.ToString(); 
         }
 
-        private string ListToJsonArrayString(IEnumerable<KeyValuePair<string, string>> jsonObject)
+        private string ListToJsonObjectString(IEnumerable<KeyValuePair<string, string>> jsonObject)
         {
             StringBuilder stringBuilder = new StringBuilder();
             var valuesList = jsonObject.ToList();
             stringBuilder.Append("{");
+
             for (int j = 0; j < valuesList.Count; j++)
             {
                 if (j != valuesList.Count - 1)
